@@ -1,0 +1,93 @@
+@import 'fonts.less';
+
+html {
+    overflow: hidden;
+}
+body {
+   z-index: 0;
+    margin: 0;
+    overflow: hidden;
+} 
+ul, li, p {
+    margin: 0;
+    padding:0;
+}
+#page {
+    height: 100vh;
+    background:#ccc;
+    position: relative;
+}
+.Header {
+    height:60px;
+    background: #000;
+    width:100%;
+    display: flex;
+    align-items: flex-start;
+    
+}
+.Header-item-left {
+    width:70%;
+    height: 100%;
+    position: relative;
+}
+.Header-item-right {
+    position: relative;
+    width:30%;
+    height: 100%;
+}
+.Opener {
+    padding: 0 10px;
+    height: 100%;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.Button-wrapper {
+    height: 100%;
+    padding-right: 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.open-menu {
+    text-decoration: none;
+    cursor: pointer;
+    font-size:25px;
+}
+
+.Menu-list {
+    width: 311px;
+    background: #fff;
+    li {
+        text-align: center;
+        list-style: none;
+        width: 100%;
+        min-height: 20px;
+        padding: 10px 15px;
+        border-bottom: 1px solid #ccc;
+        background: #a6a3ad;
+    }
+}
+.menu_holder {
+    position: relative;
+}
+.Menu-list-burger-block,
+.Menu-list-airplane-block {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    -webkit-box-shadow: -3px 3px 60px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 3px 60px 5px rgba(0,0,0,0.75);
+    box-shadow: -3px 3px 60px 5px rgba(0,0,0,0.75);
+}
+.plugin-holder, .plugin_holder_1 {
+    &.active {
+        .Opener {
+            margin-right: -20px;
+        }
+    }
+}
+

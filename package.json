@@ -1,0 +1,28 @@
+{
+    "name": "open_close",
+    "version": "1.0.0",
+    "description": "Open Close plugin with css animation",
+    "main": "index.js",
+    "scripts": {
+        "start:dev": "webpack-dev-server --open",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Dmytrii Zhmurchuk",
+    "license": "ISC",
+    "devDependencies": {
+        "clean-webpack-plugin": "^0.1.19",
+        "css-loader": "^1.0.0",
+        "file-loader": "^1.1.11",
+        "html-webpack-plugin": "^3.2.0",
+        "jquery": "^3.3.1",
+        "less": "^3.5.3",
+        "less-loader": "^4.1.0",
+        "style-loader": "^0.21.0",
+        "webpack": "^4.15.1",
+        "webpack-cli": "^3.0.8",
+        "webpack-dev-server": "^3.1.4"
+    },
+    "dependencies": {
+        "animejs": "^2.2.0"
+    }
+}
