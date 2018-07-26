@@ -234,9 +234,9 @@ console.log(anime);
 				 o.otherOpeners.removeAttr('style');
 				// o.wrapper.animate(animObj, o.speed, o.complete);
 				if(o.me.ca.began && !o.me.ca.completed) {
+					o.me.ca.complete = o.complete;
 					o.me.ca.play();
 					o.me.ca.reverse();
-					o.complete();
 					return;
 				}
 				o.me.ca = anime({
