@@ -8,7 +8,7 @@ $(document).ready(function() {
             wrapper: '#page',
 		    otherOpeners: '.Header .airplane-button',
 			addClassBeforeAnimation: true,
-			hideOnClickOutside: false,
+			hideOnClickOutside: true,
 			activeClass:'active',
 			opener:'.burger-button',
 			slider:'.menu_holder .Menu-list-burger-block',
@@ -18,18 +18,18 @@ $(document).ready(function() {
 			setWindowHeight: true,
 			event:'click touchstart'
     });
-    // $('.plugin_holder_1').OpenClose({
-    //         wrapper: '#page',
-	// 		otherOpeners: '.header-holder .mobile-btn',
-	// 		addClassBeforeAnimation: true,
-	// 		hideOnClickOutside: false,
-	// 		activeClass:'active',
-	// 		opener:'.opener',
-	// 		slider:'.slide',
-	// 		animSpeed: 400,
-	// 		animDirection:'left',
-	// 		effect:'fade',
-	// 		setWindowHeight: false,
-	// 		event:'click touchstart'
-    // });
+    $('.plugin_holder_1').openClose({
+            wrapper: '#page',
+			otherOpeners: '.burger-button',
+			addClassBeforeAnimation: true,
+			hideOnClickOutside: true,
+			activeClass:'active',
+			opener:'.airplane-button',
+			slider:'.Menu-list-airplane-block',
+			animSpeed: 400,
+			animDirection:'left',
+			effect:'push',
+			setWindowHeight: true,
+			event:'click touchstart'
+    });
 });

@@ -9,7 +9,8 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000
+        port: 9000,
+        host:'10.24.13.10'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

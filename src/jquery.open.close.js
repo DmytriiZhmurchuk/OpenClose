@@ -19,6 +19,7 @@ console.log(anime);
 		this.init();
 	}
 	OpenClose.prototype = {
+		ca: null,
 		init: function() {
 			if(this.options.holder) {
 				this.findElements();
@@ -83,15 +84,12 @@ console.log(anime);
 				}
 			};
 			this.win.on('load resize orientationchange', self.resizeHandler);
-			//if anim direction left
 			
-			//console.log(screen.width + self.slider.width())
-			var w = self.slider.width();
-			var opener_w = self.opener.width();
-			debugger;
-			if(w >=screen.width) {
+			var w = self.slider.outerWidth();
+			var opener_w =self.opener.outerWidth()
+			if(w >=(screen.width - opener_w)) {
 				w = screen.width - opener_w
-				self.slider.css('max-width', w);
+				self.slider.width(w);
 			}
 			self.slider.css('right',-w);
 			self.slider.css('top','0');
@@ -107,6 +105,7 @@ console.log(anime);
 
 			self.makeCallback('animStart', true, self);
 			toggleEffects[self.options.effect].show({
+				me:self,
 				box: self.slider,
 				wrapper: self.wrapper,
 				opener: self.opener,
@@ -130,6 +129,7 @@ console.log(anime);
 
 			self.makeCallback('animStart', false, self);
 			toggleEffects[self.options.effect].hide({
+				me:self,
 				box: self.slider,
 				wrapper: self.wrapper,
 				opener: self.opener,
@@ -219,7 +219,7 @@ console.log(anime);
 				 o.otherOpeners.not(o.opener).hide();
 				// o.wrapper.animate(animObj, o.speed, o.complete);
 				//-----------------------
-				anime({
+				o.me.ca = anime({
 					targets:[o.wrapper[0],o.box[0]],
 					elasticity: 0,
 					easing: 'easeInOutSine',//'easeInQuart',
@@ -233,7 +233,13 @@ console.log(anime);
 			hide: function(o) {
 				 o.otherOpeners.removeAttr('style');
 				// o.wrapper.animate(animObj, o.speed, o.complete);
-				anime({
+				if(o.me.ca.began && !o.me.ca.completed) {
+					o.me.ca.play();
+					o.me.ca.reverse();
+					o.complete();
+					return;
+				}
+				o.me.ca = anime({
 					targets:[o.wrapper[0],o.box[0]],
 					elasticity: 0,
 					easing: 'easeInOutSine',//'easeInQuart',
